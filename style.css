@@ -8,14 +8,38 @@ main {
   background-color: black;
   margin-top: 100px;
   width: 300px;
-  height: 460px;
+  height: 463px;
   border-radius: 20px;
 }
 
 button {
-  padding: 30px;
+  padding: 32.2px;
+  border: none;
+  font-family: inherit;
+  user-select: none;
+  cursor: pointer;
+  outline: none;
+  border-top: 1px solid;
 }
 
 #digits {
   margin-top: 150px;
+}
+
+#zero {
+  width: 146px;
+  height: 70px;
+  border-radius: 0px 0px 0px 20px;
+  border-width: 1px;
+}
+
+.botom {
+  height: 70px;
+  width: 71px;
+}
+
+.botom:last-child {
+  border-radius: 0px 0px 20px 0px;
+  border-width: 1px;
+  width: 74px;
 }
