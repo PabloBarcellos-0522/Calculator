@@ -42,4 +42,17 @@ button {
   border-radius: 0px 0px 20px 0px;
   border-width: 1px;
   width: 74px;
+  background-color: orange;
+}
+
+.esp {
+  background-color: orange;
+}
+
+#result {
+  position: absolute;
+  font-size: xxx-large;
+  padding: 0px 20px;
+  right: 0;
+  color: white;
 }
