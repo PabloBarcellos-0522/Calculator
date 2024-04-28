@@ -19,7 +19,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   for (let i = 0; i < buttonNumbers.length; i++) {
     buttonNumbers[i].addEventListener("click", function () {
-      writing = writing + buttonNumbers[i].getAttribute("data-num")
+      if (writing == "0") {
+        writing = buttonNumbers[i].getAttribute("data-num")
+      } else {
+        writing = writing + buttonNumbers[i].getAttribute("data-num")
+      }
 
       if (choice == "") {
         num1 = writing
@@ -31,6 +35,12 @@ document.addEventListener("DOMContentLoaded", function () {
   clean.addEventListener("click", function () {
     writing = ""
     document.getElementById("result").innerHTML = 0
+
+    writing = ""
+    num1 = 0
+    num2 = 0
+    result = null
+    choice = ""
   })
 
   replace.addEventListener("click", function () {
@@ -46,9 +56,13 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     document.getElementById("result").innerHTML = writing
   })
+
   dot.addEventListener("click", function () {
-    console.log(writing)
-    writing = writing + "."
+    if (writing == "" || writing == "0") {
+      writing = "0."
+    } else if (!writing.includes(".")) {
+      writing = writing + "."
+    }
     if (choice == "") {
       num1 = writing
     }
@@ -62,7 +76,6 @@ document.addEventListener("DOMContentLoaded", function () {
     if (choice == "") {
       num1 = writing
       writing = ""
-      console.log(num1, num2, result)
       choice = "M"
     } else {
       num2 = writing
@@ -74,7 +87,6 @@ document.addEventListener("DOMContentLoaded", function () {
       writing = result
       document.getElementById("result").innerHTML = result
       writing = ""
-      console.log(num1, num2, result)
     }
   })
 
@@ -85,7 +97,6 @@ document.addEventListener("DOMContentLoaded", function () {
     if (choice == "") {
       num1 = writing - 0
       writing = ""
-      console.log(num1, num2, result)
       choice = "A"
     } else {
       num2 = writing - 0
@@ -97,7 +108,6 @@ document.addEventListener("DOMContentLoaded", function () {
       writing = result
       document.getElementById("result").innerHTML = result
       writing = ""
-      console.log(num1, num2, result)
     }
   })
 
@@ -108,7 +118,6 @@ document.addEventListener("DOMContentLoaded", function () {
     if (choice == "") {
       num1 = writing - 0
       writing = ""
-      console.log(num1, num2, result)
       choice = "S"
     } else {
       num2 = writing - 0
@@ -120,7 +129,6 @@ document.addEventListener("DOMContentLoaded", function () {
       writing = result
       document.getElementById("result").innerHTML = result
       writing = ""
-      console.log(num1, num2, result)
     }
   })
 
@@ -131,7 +139,6 @@ document.addEventListener("DOMContentLoaded", function () {
     if (choice == "") {
       num1 = writing - 0
       writing = ""
-      console.log(num1, num2, result)
       choice = "D"
     } else {
       num2 = writing - 0
@@ -143,7 +150,6 @@ document.addEventListener("DOMContentLoaded", function () {
       writing = result
       document.getElementById("result").innerHTML = result
       writing = ""
-      console.log(num1, num2, result)
     }
   })
 
@@ -184,18 +190,21 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
 
+    if (choice == "") {
+      result = num1 / 100
+      num2 = result
+    }
+
     choice = "P"
     writing = result
     document.getElementById("result").innerHTML = num2
     writing = ""
-    console.log(num1, num2, result)
   })
 
   equals.addEventListener("click", equal)
 
   function equal() {
     num2 = writing - 0
-    console.log(num1, num2, result)
     if (choice == "M") {
       if (result == null) {
         result = num1 * num2
@@ -209,6 +218,10 @@ document.addEventListener("DOMContentLoaded", function () {
         result = num1 / num2
       } else {
         result = result / num2
+      }
+
+      if (num2 == 0 || result == Infinity) {
+        result = "Erro"
       }
     }
 
@@ -236,8 +249,12 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
 
-    writing = result
     document.getElementById("result").innerHTML = result
+    if (result == "Erro") {
+      result = 0
+    }
+
+    writing = result + ""
     result = null
     choice = ""
   }
