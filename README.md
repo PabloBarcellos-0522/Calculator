@@ -13,8 +13,10 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 # Preview
 
-<img width="200px" src="./resources/iPhone-13-Mini-127.0.0.1.png"/>
-<img width="390px" src="./resources/Macbook-Air-127.0.0.1.png"/>
+<div style="display: flex; align-items: flex-end; justify-content: center;">
+    <img width="180px" src="./resources/iPhone-13-Mini-127.0.0.1.png"/>
+    <img width="380px" height="220px" src="./resources/Macbook-Air-127.0.0.1.png"/>
+</div>
 
 #
 
