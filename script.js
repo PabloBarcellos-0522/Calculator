@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var buttonNumbers = document.getElementsByClassName("num")
   var clean = document.getElementById("clear")
   var replace = document.getElementById("replace")
+  var porcentagem = document.getElementById("porcentagem")
   var zero = document.getElementById("zero")
   var dot = document.getElementById("dot")
   var multiplicacao = document.getElementById("multiplicacao")
@@ -146,6 +147,50 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   })
 
+  porcentagem.addEventListener("click", function () {
+    if (choice == "M") {
+      num2 = writing / 100
+      if (result == null) {
+        result = num1 * num2
+      } else {
+        result *= num2
+      }
+    }
+
+    if (choice == "D") {
+      num2 = writing / 100
+      if (result == null) {
+        result = num1 / num2
+      } else {
+        result = result / num2
+      }
+    }
+
+    if (choice == "A") {
+      num2 = num1 * (writing / 100)
+      if (result == null) {
+        result = num1 + num2
+      } else {
+        result += num2
+      }
+    }
+
+    if (choice == "S") {
+      num2 = num1 * (writing / 100)
+      if (result == null) {
+        result = num1 - num2
+      } else {
+        result -= num2
+      }
+    }
+
+    choice = "P"
+    writing = result
+    document.getElementById("result").innerHTML = num2
+    writing = ""
+    console.log(num1, num2, result)
+  })
+
   equals.addEventListener("click", equal)
 
   function equal() {
@@ -156,6 +201,14 @@ document.addEventListener("DOMContentLoaded", function () {
         result = num1 * num2
       } else {
         result *= num2
+      }
+    }
+
+    if (choice == "D") {
+      if (result == null) {
+        result = num1 / num2
+      } else {
+        result = result / num2
       }
     }
 
@@ -170,14 +223,6 @@ document.addEventListener("DOMContentLoaded", function () {
     if (choice == "S") {
       if (result == null) {
         result = num1 - num2
-      } else {
-        result -= num2
-      }
-    }
-
-    if (choice == "D") {
-      if (result == null) {
-        result = num1 / num2
       } else {
         result -= num2
       }
