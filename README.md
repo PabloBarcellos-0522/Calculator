@@ -4,7 +4,8 @@
 
 Esse projeto foi desenvolvido com as seguintes tecnologias:
 
-- HTML && CSS
+- HTML
+- CSS
 - JavaScript
 - Git && Github
 
